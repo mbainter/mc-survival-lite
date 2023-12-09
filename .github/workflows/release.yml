@@ -28,7 +28,7 @@ jobs:
           artifact_name: "$DATAPACK_BASENAME"
           packsquash_version: latest
           options: |
-            pack-directory = '.'
+            pack_directory = '.'
             output_file_path = '/tmp/${DATAPACK_BASENAME}.zip'
       - name: Tag and create release
         uses: softprops/action-gh-release@v1
