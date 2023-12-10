@@ -5,9 +5,10 @@ on:
     branches:
       - main
     paths:
-      - data/**
-      - pack.mcmeta
-      - .github/workflows/**
+      - datapack/**
+      - .github/workflows/datapack_tests.yml
+      - .github/workflows/datapack_release.yml
+
 jobs:
   build-main:
     runs-on: ubuntu-latest
@@ -24,16 +25,18 @@ jobs:
       - name: Check commands
         uses: mcbeet/check-commands@v1
         with:
-          source: .
+         source: datapack/
           minecraft: 1.19
       # Checks JSON for errors
-      - name: Check JSON
-        uses: ocular-d/json-linter@0.0.2
+      - name: json-yaml-validate
+        uses: GrantBirki/json-yaml-validate@v2.4.0
+        with:
+          base_dir: datapack/
       # Uploads an artifact that you can download and use in your Minecraft world
       - name: Compile and upload
         uses: actions/upload-artifact@v3
         with:
-          name: bmc3-mining-dimension-pr${{steps.pr.outputs.pr_number}}
+          name: survival-lite.${{steps.pr.outputs.pr_number}}
           path: |
                data/
                pack.mcmeta

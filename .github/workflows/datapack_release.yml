@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  DATAPACK_BASENAME: "bmc3-mining-dimension"
+  DATAPACK_BASENAME: "survival-lite"
 
 jobs:
   release:
@@ -28,7 +28,7 @@ jobs:
           artifact_name: "$DATAPACK_BASENAME"
           packsquash_version: latest
           options: |
-            pack_directory = '.'
+            pack_directory = 'datapack/'
             output_file_path = '/tmp/${DATAPACK_BASENAME}.zip'
       - name: Tag and create release
         uses: softprops/action-gh-release@v1
