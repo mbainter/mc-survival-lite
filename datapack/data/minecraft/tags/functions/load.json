@@ -1,3 +1,6 @@
 {
-	"values": ["bmo:creepers/nerf"]
+	"values": [
+    "bmo:creepers/nerf",
+    "bmo:protection/grant"
+  ]
 }
